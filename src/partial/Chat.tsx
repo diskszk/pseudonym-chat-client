@@ -1,20 +1,25 @@
-import React from "react";
-import { mockMessages } from "../model";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 export const Chat: React.FC = () => {
   const userId = "01";
+  const [message, setMessage] = useState("");
+
+  type MSG = { message: string };
+  const [messages, setMessages] = useState<MSG[]>([]);
+
+  // TODO: コンポーネントを分割する
   return (
-    <div>
+    <div className="flex flex-col w-1/3 justify-center mx-auto">
       <ul>
-        {mockMessages.map((message, key) => {
+        {messages.map((message, key) => {
           return (
             <StyledDisplayUsername
               key={key}
-              isCurrentUser={userId === message.userId}
+              isCurrentUser={userId === message.message}
             >
               <p>
-                {"> "} {message.sender}
+                {"> "} {message.message}
               </p>
               <p>{message.message}</p>
             </StyledDisplayUsername>
@@ -29,7 +34,10 @@ export const Chat: React.FC = () => {
           className="form-textarea mt-1 block w-full"
           rows={3}
           placeholder="Enter some long form content."
+          onChange={() => {}}
+          value={message}
         ></textarea>
+        <button onClick={() => {}}>送信</button>
       </label>
     </div>
   );

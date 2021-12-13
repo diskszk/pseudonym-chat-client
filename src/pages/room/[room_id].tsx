@@ -1,15 +1,16 @@
 import { NextPage } from "next";
-import { Chat } from "../../components/Chat";
+import { Chat } from "../../partial/Chat";
+import { Layout } from "../../shared";
 
 const RoomPage: NextPage = () => {
   return (
-    <div className="">
+    <Layout>
       <h1>Welcome!</h1>
 
-      <div className="max-w-6xl">
+      <div>
         <Chat />
       </div>
-    </div>
+    </Layout>
   );
 };
 
