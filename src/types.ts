@@ -5,3 +5,11 @@ export type Message = {
   message: string;
   sender: string;
 };
+
+export type DataToSend = {
+  message: string;
+  clientId: string;
+  roomId: string;
+  username: string;
+  messageId: string;
+};
